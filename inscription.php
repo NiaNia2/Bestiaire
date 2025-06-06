@@ -8,7 +8,6 @@ $total_element = $bdd->prepare("SELECT id,name_element
 $total_element->execute(array());
 
 if (!empty($_POST['names']) && !empty($_POST['pass']) && !empty($_POST['elements'])) {
-    var_dump($_POST['elements']);
     $name = htmlspecialchars($_POST['names']);
     $elements = $_POST['elements'];
     $password = password_hash(htmlspecialchars($_POST['pass']), PASSWORD_ARGON2I);
@@ -34,7 +33,7 @@ if (!empty($_POST['names']) && !empty($_POST['pass']) && !empty($_POST['elements
 
     $_SESSION['users'] = ['id' => $data['id'], 'name' => $data['names'], 'role' => $data['user_role'], 'elements' => $array_element];
 
-    // header('location:index.php');
+    header('location:index.php');
 }
 
 ?>
