@@ -1,2 +1,11 @@
-//
-@use 'layout.php';
+// layout
+@use "layout/header";
+@use "layout/footer";
+// base
+@use "base/base";
+@use "base/typographie";
+@use "base/utilities";
+//components
+@use "components/button";
+//page
+@use "page/style.scss";
