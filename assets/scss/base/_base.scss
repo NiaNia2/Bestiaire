@@ -1,1 +1,17 @@
 //tout ce qui conserne le body h1/h2 a ect......
+@use "../abstracts/variables" as variables;
+
+body {
+    background-color: variables.$bg-body;
+    font-family: variables.$font ;
+    margin: 0;
+}
+
+h1 {
+    font: variables.$font-italic;
+    font-size: 48px;
+}
+
+h2 {
+    font-size: 36px;
+}

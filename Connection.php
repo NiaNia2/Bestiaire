@@ -5,11 +5,11 @@ $bdd = new PDO('mysql:host=mysql;dbname=Bestiaire;charset=utf8', 'root', 'root')
 
 if (!empty($_POST['name']) && !empty($_POST['firstname']) && !empty($_POST['pass'])) {
     $name = htmlspecialchars($_POST['names']);
-    $firstname = htmlspecialchars($_POST['firstname']);
+
     $password = htmlspecialchars($_POST['pass']);
 
-    $requestcreate = $bdd->prepare("SELECT id,names,pass FROM users WHERE nom = '$name' AND ");
-    $requestcreate->execute(array());
+    $requestcreate = $bdd->prepare("SELECT id,names,user_role,pass FROM users WHERE nom = ?");
+    $requestcreate->execute(array($name));
     $data = $requestcreate->fetch();
     if (password_verify($password, $data['pass'])) {
         $_SESSION['users'] = ['id' => $data['id'], 'nom' => $data['nom']];
