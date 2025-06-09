@@ -8,10 +8,16 @@ body {
 }
 
 h1 {
-    font: variables.$font-italic;
+    font-family: variables.$font-italic;
     font-size: 48px;
+    text-transform: uppercase;
 }
 
 h2 {
     font-size: 36px;
+    color: variables.$color-second;
+}
+
+p {
+    font-size: 18px;
 }

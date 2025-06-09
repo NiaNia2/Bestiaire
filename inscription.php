@@ -31,7 +31,7 @@ if (!empty($_POST['names']) && !empty($_POST['pass']) && !empty($_POST['elements
         $requestLink->execute(array($data['id'], (int)$element_id));
     }
 
-    $_SESSION['users'] = ['id' => $data['id'], 'name' => $data['names'], 'role' => $data['user_role'], 'elements' => $array_element];
+    $_SESSION['users'] = ['id' => $data['id'], 'names' => $data['names'], 'role' => $data['user_role'], 'elements' => $array_element];
 
     header('location:index.php');
 }
@@ -45,25 +45,28 @@ if (!empty($_POST['names']) && !empty($_POST['pass']) && !empty($_POST['elements
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inscription</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
 <body>
-    <div class="form">
-        <form action="inscription.php" method="post">
-            <label for="names"> Nom: </label>
-            <input type="text" name="names" required>
-            <label for="pass">Mot de passe: </label>
-            <input type="pass" name="pass" required>
-            <?php
-            while ($elements = $total_element->fetch()) {
-                echo '<label>' . $elements['name_element'] . '</label>';
-                echo '<input type="checkbox" name="elements[]" value="' . $elements['id'] . ',' . $elements['name_element'] . '" >';
-            }
-            ?>
-            <button class="btn">Envoyer</button>
-        </form>
-    </div>
+    <?php include('./layout/header.php'); ?>
+    <main>
+        <div class="form">
+            <form action="inscription.php" method="post">
+                <label for="names"> Nom: </label>
+                <input type="text" name="names" required>
+                <label for="pass">Mot de passe: </label>
+                <input type="pass" name="pass" required>
+                <?php
+                while ($elements = $total_element->fetch()) {
+                    echo '<label>' . $elements['name_element'] . '</label>';
+                    echo '<input type="checkbox" name="elements[]" value="' . $elements['id'] . ',' . $elements['name_element'] . '" >';
+                }
+                ?>
+                <button class="btn">Envoyer</button>
+            </form>
+        </div>
+    </main>
 </body>
 
 </html>

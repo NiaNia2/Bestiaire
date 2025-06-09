@@ -14,23 +14,10 @@ $bdd = new PDO('mysql:host=mysql;dbname=Bestiaire;charset=utf8', 'root', 'root')
 </head>
 
 <body>
-    <header>
-        <div class="logo">
-            <img src="assets/img/Le grimoire du vivant magique.png" alt="">
-        </div>
-        <h1>Le Grimoire du Vivant Magique</h1>
-        <nav>
-            <li><a href="index.php">Acceuil</a></li>
-            <li><a href="Connection.php">Connection</a></li>
-            <li><a href="inscription.php">Inscription</a></li>
-            <li><a href="#">Sorts</a></li>
-            <li><a href="#">Bestiaire</a></li>
-        </nav>
-    </header>
+    <?php include('./layout/header.php'); ?>
     <main>
         <?php if (isset($_SESSION['users'])) {
-            $nameUser = $_SESSION['users']['names'];
-            echo '<p>bienvenue ' . $nameUser . '</p>';
+            echo '<h2>bienvenue ' . $_SESSION['users']['names'] . '</h2>';
         }
         ?>
     </main>
