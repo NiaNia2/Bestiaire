@@ -9,15 +9,36 @@ body {
 
 h1 {
     font-family: variables.$font-italic;
-    font-size: 48px;
+    font-size: 36px;
     text-transform: uppercase;
 }
 
 h2 {
-    font-size: 36px;
+    font-size: 24px;
     color: variables.$color-second;
+    letter-spacing: 2px;
+    text-align: center;
+}
+
+h3 {
+    font-size: 20px;
+    text-transform: uppercase;
+    text-decoration: underline;
+    text-align: center;
+
 }
 
 p {
     font-size: 18px;
+}
+
+img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+a {
+    text-decoration: none;
 }

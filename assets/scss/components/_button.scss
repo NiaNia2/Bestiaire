@@ -1,6 +1,7 @@
 @use "../abstracts/variables" as variables;
 
 .btn {
+    width: 50%;
     background-color: variables.$bg-button;
     color: variables.$color-button;
     font-family: 'Comorant_Garamond';
@@ -11,6 +12,7 @@
     box-shadow: 0 0 10px rgba(212, 175, 55, 0.2);
     text-shadow: 0 1px 1px rgba(0, 0, 0, 0.4);
     transition: all 0.3s ease;
+    align-self: center;
 }
 
 .btn:hover {

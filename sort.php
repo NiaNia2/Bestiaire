@@ -9,19 +9,12 @@ $bdd = new PDO('mysql:host=mysql;dbname=Bestiaire;charset=utf8', 'root', 'root')
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Acceuil</title>
+    <title>Document</title>
     <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="assets/img/lib/font-awesome/all/all.css.css">
 </head>
 
 <body>
     <?php include('./layout/header.php'); ?>
-    <main>
-        <?php if (isset($_SESSION['users'])) {
-            echo '<h2>bienvenue ' . $_SESSION['users']['names'] . '</h2>';
-        }
-        ?>
-    </main>
 </body>
 
 </html>
