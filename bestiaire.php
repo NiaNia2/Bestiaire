@@ -2,6 +2,20 @@
 session_start();
 
 $bdd = new PDO('mysql:host=mysql;dbname=Bestiaire;charset=utf8', 'root', 'root');
+
+$total_element = $bdd->prepare("SELECT id,user_id,type_creature_id,description_creature,image_creature
+                                FROM creature");
+$total_element->execute(array());
+
+if (!empty($_POST['type_creature_id']) && !empty($_POST['name_creature']) && !empty($_POST['description_creature'])) {
+    $name = htmlspecialchars($_POST['names']);
+    $elements = $_POST['elements'];
+    $password = password_hash(htmlspecialchars($_POST['pass']), PASSWORD_ARGON2I);
+
+    $requestCreate = $bdd->prepare('INSERT INTO users(names,user_role,pass) 
+                                   VALUES(?,?,?)');
+    $requestCreate->execute(array($name, 'gens', $password));
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
